@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+        string result="";
+        map<int,string>m;
+        string temp="";
+        for(int i=0;i<s.length();i++)
+        {
+            temp+=s[i];
+            if(s[i]>='1'&&s[i]<='9')
+            {
+                int x=int(s[i]);
+                temp.erase(temp.begin()+temp.size()-1);
+                m[x]=temp;
+                temp.clear();
+                i++;
+            }
+        }
+        for(auto itr:m)
+        {
+           result+=itr.second;
+            result+=' ';
+        }
+        result.erase(result.begin()+result.size()-1);
+        return result;
+    }
+};
